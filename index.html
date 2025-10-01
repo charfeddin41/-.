@@ -10,7 +10,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             margin: 0;
-            padding: 20px;
+            padding: 10px;
             min-height: 100vh;
             color: #333;
         }
@@ -19,88 +19,206 @@
             max-width: 900px;
             margin: 0 auto;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             overflow: hidden;
         }
 
         .header {
             background: linear-gradient(45deg, #ff6b6b, #feca57);
-            padding: 30px;
+            padding: 20px;
             text-align: center;
             color: white;
         }
 
         .header h1 {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+            margin: 10px 0;
         }
 
         .score-board {
             display: flex;
             justify-content: space-around;
             background: #f8f9fa;
-            padding: 20px;
+            padding: 15px 10px;
             border-bottom: 3px solid #e9ecef;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .score-item {
             text-align: center;
-            padding: 15px;
+            padding: 10px;
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            min-width: 120px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            min-width: 80px;
+            flex: 1;
+            max-width: 150px;
         }
 
         .score-number {
-            font-size: 2rem;
+            font-size: clamp(1.2rem, 3vw, 2rem);
             font-weight: bold;
             color: #28a745;
         }
 
+        .score-item div:last-child {
+            font-size: clamp(0.7rem, 2vw, 1rem);
+        }
+
         .game-area {
-            padding: 40px;
+            padding: 20px;
             text-align: center;
         }
 
         .sentence-card {
             background: linear-gradient(135deg, #74b9ff, #0984e3);
             color: white;
-            padding: 30px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            font-size: 1.8rem;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            font-size: clamp(1.2rem, 3.5vw, 1.8rem);
             line-height: 1.6;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
             transform: translateY(0);
             transition: all 0.3s ease;
         }
 
         .sentence-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
         }
 
         .options {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
         }
 
         .option-btn {
             background: linear-gradient(135deg, #fd79a8, #e84393);
             color: white;
             border: none;
-            padding: 20px;
-            border-radius: 15px;
-            font-size: 2rem;
+            padding: 12px 8px;
+            border-radius: 12px;
+            font-size: clamp(0.9rem, 2.5vw, 1.3rem);
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             font-weight: bold;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* استعلامات الوسائط للشاشات الصغيرة */
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            
+            .container {
+                border-radius: 10px;
+            }
+            
+            .header {
+                padding: 15px;
+            }
+            
+            .score-board {
+                padding: 10px 5px;
+            }
+            
+            .score-item {
+                padding: 8px;
+                min-width: 70px;
+            }
+            
+            .game-area {
+                padding: 15px;
+            }
+            
+            .sentence-card {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+            
+            .options {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            
+            .option-btn {
+                padding: 10px 6px;
+                min-height: 45px;
+            }
+        }
+
+        /* استعلامات الوسائط للشاشات الصغيرة جداً */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.3rem;
+            }
+            
+            .score-board {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+            
+            .score-item {
+                width: 100%;
+                max-width: 200px;
+            }
+            
+            .options {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .option-btn {
+                padding: 15px;
+                font-size: 1.1rem;
+            }
+        }
+
+        /* استعلامات الوسائط للشاشات الكبيرة */
+        @media (min-width: 1200px) {
+            body {
+                padding: 30px;
+            }
+            
+            .container {
+                border-radius: 25px;
+            }
+            
+            .header {
+                padding: 40px;
+            }
+            
+            .game-area {
+                padding: 50px;
+            }
+            
+            .sentence-card {
+                padding: 40px;
+                margin-bottom: 40px;
+            }
+            
+            .options {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 20px;
+                margin-bottom: 40px;
+            }
         }
 
         .option-btn:hover {
@@ -160,39 +278,39 @@
             background: linear-gradient(135deg, #a29bfe, #6c5ce7);
             color: white;
             border: none;
-            padding: 15px 40px;
-            border-radius: 25px;
-            font-size: 1.3rem;
+            padding: 12px 30px;
+            border-radius: 20px;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            margin-top: 15px;
         }
 
         .next-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
 
         .progress-bar {
             background: #e9ecef;
-            height: 10px;
-            border-radius: 5px;
-            margin: 20px 0;
+            height: 8px;
+            border-radius: 4px;
+            margin: 15px 10px;
             overflow: hidden;
         }
 
         .progress-fill {
             background: linear-gradient(90deg, #00b894, #00a085);
             height: 100%;
-            border-radius: 5px;
+            border-radius: 4px;
             transition: width 0.5s ease;
         }
 
         .confetti {
             position: fixed;
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             background: #ff6b6b;
             animation: confettiFall 3s linear infinite;
         }
@@ -204,33 +322,135 @@
 
         .game-complete {
             text-align: center;
-            padding: 40px;
+            padding: 30px 20px;
             background: linear-gradient(135deg, #fd79a8, #fdcb6e);
             color: white;
-            border-radius: 20px;
-            margin: 20px;
+            border-radius: 15px;
+            margin: 10px;
+        }
+
+        .game-complete h2 {
+            font-size: clamp(1.3rem, 4vw, 2rem);
+            margin-bottom: 20px;
+        }
+
+        .game-complete div {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            margin: 15px 0;
         }
 
         .restart-btn {
             background: linear-gradient(135deg, #74b9ff, #0984e3);
             color: white;
             border: none;
-            padding: 20px 40px;
-            border-radius: 25px;
-            font-size: 1.5rem;
+            padding: 15px 30px;
+            border-radius: 20px;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
             cursor: pointer;
             margin-top: 20px;
             transition: all 0.3s ease;
         }
 
+        .restart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
         .explanation {
             background: #fff3cd;
             border: 2px solid #ffeaa7;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-            font-size: 1.2rem;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
             color: #856404;
+            line-height: 1.5;
+        }
+
+        .success-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: linear-gradient(135deg, #00b894, #00a085);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            font-weight: bold;
+            z-index: 1000;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        /* تحسينات إضافية للشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .progress-bar {
+                margin: 10px 5px;
+                height: 6px;
+            }
+            
+            .next-btn {
+                padding: 10px 25px;
+                margin-top: 10px;
+            }
+            
+            .explanation {
+                padding: 12px;
+                margin: 10px 0;
+            }
+            
+            .game-complete {
+                padding: 20px 15px;
+                margin: 5px;
+            }
+            
+            .restart-btn {
+                padding: 12px 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .success-message {
+                padding: 20px;
+                font-size: 2rem;
+            }
+            
+            .game-complete {
+                padding: 15px 10px;
+            }
+            
+            .explanation {
+                padding: 10px;
+                font-size: 0.95rem;
+            }
+        }
+
+        /* تحسينات للشاشات الكبيرة */
+        @media (min-width: 1200px) {
+            .progress-bar {
+                margin: 25px 0;
+                height: 12px;
+            }
+            
+            .next-btn {
+                padding: 18px 45px;
+                margin-top: 25px;
+            }
+            
+            .explanation {
+                padding: 25px;
+                margin: 25px 0;
+            }
+            
+            .game-complete {
+                padding: 50px 40px;
+                margin: 30px;
+            }
+            
+            .restart-btn {
+                padding: 25px 50px;
+            }
         }
     </style>
 </head>
@@ -254,7 +474,7 @@
                 <div>السؤال الحالي</div>
             </div>
             <div class="score-item">
-                <div class="score-number">100</div>
+                <div class="score-number">130</div>
                 <div>إجمالي الأسئلة</div>
             </div>
         </div>
@@ -272,7 +492,8 @@
                 <button class="option-btn" onclick="selectAnswer('.')">النقطة (.)</button>
                 <button class="option-btn" onclick="selectAnswer('?')">علامة الاستفهام (?)</button>
                 <button class="option-btn" onclick="selectAnswer('!')">علامة التعجب (!)</button>
-                <button class="option-btn" onclick="selectAnswer(',')">الفصلة (،)</button>
+                <button class="option-btn" onclick="selectAnswer(',')">الفاصلة (،)</button>
+                <button class="option-btn" onclick="selectAnswer(':')">النقطتان (:)</button>
             </div>
 
             <div class="explanation" id="explanation" style="display: none;"></div>
@@ -292,7 +513,7 @@
             { text: "ما اسمك", answer: "?", explanation: "هذه جملة استفهامية تحتاج لعلامة استفهام" },
             { text: "أحب المدرسة", answer: ".", explanation: "هذه جملة خبرية تحتاج لنقطة" },
             { text: "ما أجمل الطبيعة", answer: "!", explanation: "هذه جملة تعجبية تحتاج لعلامة تعجب" },
-            { text: "ذهبت إلى السوق، واشتريت الفواكه", answer: ",", explanation: "الفصلة تفصل بين الجملتين" },
+            { text: "ذهبت إلى السوق، واشتريت الفواكه", answer: ",", explanation: "الفاصلة تفصل بين الجملتين" },
             { text: "كم عمرك", answer: "?", explanation: "سؤال عن العمر يحتاج لعلامة استفهام" },
             { text: "الشمس مشرقة اليوم", answer: ".", explanation: "جملة خبرية تنتهي بنقطة" },
             { text: "يا له من يوم رائع", answer: "!", explanation: "تعبير عن الإعجاب يحتاج لعلامة تعجب" },
@@ -394,7 +615,41 @@
             { text: "ما أعظم خلق الله", answer: "!", explanation: "تعظيم لخلق الله" },
             { text: "كيف تشعر عندما تنجح", answer: "?", explanation: "سؤال عن مشاعر النجاح" },
             { text: "النار حارة والثلج بارد", answer: ".", explanation: "خصائص طبيعية تنتهي بنقطة" },
-            { text: "كم هو جميل التنوع في الطبيعة", answer: "!", explanation: "إعجاب بتنوع الطبيعة" }
+            { text: "كم هو جميل التنوع في الطبيعة", answer: "!", explanation: "إعجاب بتنوع الطبيعة" },
+            
+            // جمل جديدة للفاصلة
+            { text: "أحمد طالب مجتهد... وعلي طالب ذكي", answer: ",", explanation: "الفاصلة تفصل بين جملتين مترابطتين" },
+            { text: "في الحديقة أشجار... وورود... وعصافير", answer: ",", explanation: "الفاصلة تفصل بين عناصر متعددة" },
+            { text: "قرأت القصة... ثم كتبت تلخيصاً عنها", answer: ",", explanation: "الفاصلة تفصل بين الجملتين المترابطتين" },
+            { text: "المعلم يشرح الدرس... والطلاب يستمعون", answer: ",", explanation: "الفاصلة تربط بين جملتين متكاملتين" },
+            { text: "في المكتبة كتب... ومجلات... وقصص", answer: ",", explanation: "الفاصلة تفصل بين الأشياء المعدودة" },
+            { text: "سافرت إلى الرياض... وزرت المتحف الوطني", answer: ",", explanation: "الفاصلة تربط بين حدثين متتاليين" },
+            { text: "الطعام لذيذ... والجو معتدل", answer: ",", explanation: "الفاصلة تفصل بين وصفين مختلفين" },
+            { text: "درست الرياضيات... ثم حللت التمارين", answer: ",", explanation: "الفاصلة تفصل بين فعلين متتاليين" },
+            { text: "في الفصل طاولات... وكراسي... وسبورة", answer: ",", explanation: "الفاصلة تعدد محتويات المكان" },
+            { text: "اللعبة ممتعة... والأطفال سعداء", answer: ",", explanation: "الفاصلة تربط بين حالتين مترابطتين" },
+            { text: "أكلت التفاح... والبرتقال... والموز", answer: ",", explanation: "الفاصلة تفصل بين الأشياء المعدودة" },
+            { text: "الشمس مشرقة... والسماء صافية", answer: ",", explanation: "الفاصلة تربط بين وصفين للطبيعة" },
+            { text: "ذهبت للمدرسة... وحضرت الحصص", answer: ",", explanation: "الفاصلة تربط بين أحداث متتالية" },
+            { text: "في الحقيبة أقلام... وكتب... ودفاتر", answer: ",", explanation: "الفاصلة تعدد محتويات الحقيبة" },
+            { text: "الطالب يقرأ... والمعلم يراقب", answer: ",", explanation: "الفاصلة تربط بين فعلين متزامنين" },
+            
+            // جمل جديدة للنقطتين
+            { text: "الفواكه المفيدة هي... التفاح والبرتقال والموز", answer: ":", explanation: "النقطتان تأتي قبل التعداد أو التفصيل" },
+            { text: "أدوات المدرسة... القلم والكتاب والمسطرة", answer: ":", explanation: "النقطتان تأتي قبل ذكر التفاصيل" },
+            { text: "قال المعلم... ادرسوا بجد", answer: ":", explanation: "النقطتان تأتي بعد فعل القول وقبل الكلام المنقول" },
+            { text: "الألوان الأساسية... الأحمر والأزرق والأصفر", answer: ":", explanation: "النقطتان تأتي قبل تعداد العناصر" },
+            { text: "فصول السنة الأربعة... الربيع والصيف والخريف والشتاء", answer: ":", explanation: "النقطتان تأتي قبل التفصيل والتوضيح" },
+            { text: "قالت الأم لابنها... كن مؤدباً", answer: ":", explanation: "النقطتان تأتي بعد فعل القول وقبل الحديث المباشر" },
+            { text: "الحيوانات الأليفة... القطة والكلب والأرنب", answer: ":", explanation: "النقطتان تأتي قبل ذكر الأمثلة" },
+            { text: "وجبة الإفطار تحتوي على... الخبز والجبن والعسل", answer: ":", explanation: "النقطتان تأتي قبل تعداد المحتويات" },
+            { text: "الرياضات المفضلة لدي... كرة القدم والسباحة", answer: ":", explanation: "النقطتان تأتي قبل ذكر التفضيلات" },
+            { text: "قالوا للطلاب... اجتهدوا في دراستكم", answer: ":", explanation: "النقطتان تأتي بعد فعل القول الجماعي" },
+            { text: "صرخ الطفل... أريد أمي", answer: ":", explanation: "النقطتان تأتي بعد فعل يدل على الكلام" },
+            { text: "همس الصديق... سأساعدك", answer: ":", explanation: "النقطتان تأتي بعد فعل الهمس وقبل الكلام" },
+            { text: "أجاب التلميذ... نعم يا أستاذ", answer: ":", explanation: "النقطتان تأتي بعد فعل الإجابة" },
+            { text: "نادى الأب... تعال يا بني", answer: ":", explanation: "النقطتان تأتي بعد فعل النداء" },
+            { text: "الأشهر الحرم... ذو القعدة وذو الحجة ومحرم ورجب", answer: ":", explanation: "النقطتان تأتي قبل التفصيل والشرح" }
         ];
 
         let currentQuestion = 0;
@@ -591,7 +846,8 @@
                     <button class="option-btn" onclick="selectAnswer('.')">النقطة (.)</button>
                     <button class="option-btn" onclick="selectAnswer('?')">علامة الاستفهام (?)</button>
                     <button class="option-btn" onclick="selectAnswer('!')">علامة التعجب (!)</button>
-                    <button class="option-btn" onclick="selectAnswer(',')">الفصلة (،)</button>
+                    <button class="option-btn" onclick="selectAnswer(',')">الفاصلة (،)</button>
+                    <button class="option-btn" onclick="selectAnswer(':')">النقطتان (:)</button>
                 </div>
 
                 <div class="explanation" id="explanation" style="display: none;"></div>
@@ -616,5 +872,5 @@
         shuffleArray(sentences);
         loadQuestion();
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'987ce63064e5335d',t:'MTc1OTMzMTU1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'987d9e17b073ba9c',t:'MTc1OTMzOTA4OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
